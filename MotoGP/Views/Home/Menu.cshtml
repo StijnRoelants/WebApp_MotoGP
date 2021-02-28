@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+
+    ViewData["Title"] = "Menu";
+}
+
+<style>
+    .centered {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
+    .totalPage {
+        width: 100%;
+        margin: 5px;
+        z-index: 0;
+    }
+</style>
+@{ 
+    var src = ViewData["Banner"];
+}
+<div>
+    <img src="~/images/allerlei/@src" class="totalPage"/>
+</div>
+<div class="centered">
+    <div class="d-flex justify-content-center">
+        <a asp-controller="Info" asp-action="ListRaces">
+            <img src="~/images/allerlei/races.png" />
+        </a>
+        <a asp-controller="Info" asp-action="ListTeams">
+            <img src="~/images/allerlei/teams.png" />
+        </a>
+    </div>
+    <div>
+        <a asp-controller="Info" asp-action="ListRiders">
+            <img src="~/images/allerlei/riders.png" />
+        </a>
+        <a asp-controller="Shop" asp-action="OrderTicket">
+            <img src="~/images/allerlei/tickets.png" />
+        </a>
+    </div>
+</div>
+

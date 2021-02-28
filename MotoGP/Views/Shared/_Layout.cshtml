@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+
+<style>
+    h1 {
+        color: crimson;
+    }
+
+    .totalPage {
+        width: 100%;
+        margin: 5px;
+        z-index: 0;
+    }
+</style>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title> @ViewData["Title"] - MotoGP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+@{
+    var banners = new List<string>
+    {
+        "bannerRaces.jpg", "bannerRiders.jpg", "bannerTeams.jpg", "bannerTickets.jpg"
+    };
+}
+<body>
+    @{
+        var src = "";
+        switch (ViewData["Banner"])
+        {
+            case 1:
+                src = banners[0];
+                break;
+
+            case 2:
+                src = banners[2];
+                break;
+
+            case 3:
+                src = banners[1];
+                break;
+
+            case 4:
+                src = banners[3];
+                break;
+        }
+    }
+    <div>
+        <a asp-controller="Home" asp-action="Index">
+            <img src="~/images/allerlei/@src" class="totalPage" />
+        </a>
+    </div>
+
+    <div>
+        <h1>@ViewData["Title"]</h1>
+    </div>
+    <p>@ViewData["Message"]</p>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+
